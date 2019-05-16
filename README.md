@@ -3,9 +3,13 @@
 
 ### Running this application:
 1.Install and start mysql server and make a database called BucketList.
+
 2.Add tables according to the given table schema.
+
 3.Add stored procedures according to the procedures in the folder of the same name.
+
 4.Edit app.py with your mysql credentials.
+
 5.I suggest using a virtual environment
 ```
 pip install flask
