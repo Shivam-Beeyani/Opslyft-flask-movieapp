@@ -1,0 +1,23 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_addWish`(
+    IN p_title varchar(45),
+    IN p_rate tinyint,
+    IN p_description varchar(5000),
+    IN p_user_id bigint
+)
+BEGIN
+    insert into tbl_rev(
+        rev_title,
+        rev_rate,
+        rev_description,
+        rev_user_id
+    )
+    values
+    (
+        p_title,
+        p_rate,
+        p_description,
+        p_user_id
+    );
+END$$
+DELIMITER ;

@@ -1,0 +1,17 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_addItem`(
+    IN p_title varchar(45),
+    IN p_user_id bigint
+)
+BEGIN
+    insert into tbl_bucket(
+        rev_title,
+        rev_user_id
+    )
+    values
+    (
+        p_title,
+        p_user_id
+    );
+END$$
+DELIMITER ;

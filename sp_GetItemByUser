@@ -1,0 +1,10 @@
+DELIMITER $$
+USE `BucketList`$$
+CREATE PROCEDURE `sp_GetItemByUser` (
+IN p_user_id bigint
+)
+BEGIN
+    select * from tbl_bucket where rev_user_id = p_user_id;
+END$$
+ 
+DELIMITER ;

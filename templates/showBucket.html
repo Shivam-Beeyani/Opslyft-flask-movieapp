@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Python Flask Bucket List App</title>
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/signup.css" rel="stylesheet">
+    <script>
+        $(function () {
+            $.ajax({
+                url: '/getItem',
+                type: 'GET',
+                success: function (res) {
+                    var div = $('<div>')
+                        .attr('class', 'list-group')
+                        .append($('<a>')
+                            .attr('class', 'list-group-item active')
+                            .append($('<h4>')
+                                .attr('class', 'list-group-item-heading')
+                            ));
+
+
+                    var revObj = JSON.parse(res);
+                    var rev = '';
+
+                    $.each(revObj, function (index, value) {
+                        rev = $(div).clone();
+                        $(rev).find('h4').text(value.Title);
+                        $('.jumbotron').append(rev);
+                    });
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Python Flask App</h3>
+        </div>
+        <center>
+            <div class="jumbotron">
+                <h1>Welcome Home !!</h1>
+                <a href="/showAddWish" style="padding-right:1em">Add Review</a>
+                <a href="/showAddItem" style="padding-right:1em">Add Item to bucket</a>
+                <a href="/userHome" style="padding-right:1em">User Home</a>
+            </div>
+
+        </center>
+    </div>
+</body>
+
+</html>

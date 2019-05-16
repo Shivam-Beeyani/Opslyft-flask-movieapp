@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Python Flask Bucket List App</title>
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active" style="padding-right:1em"><a href="/showAddWish">Add
+                            Review</a>
+                    </li>
+                    <li role="presentation" class="active" style="padding-right:1em"><a href="#">Add to Bucket List</a>
+                    </li>
+                    <li role="presentation" class="active" style="padding-right:1em"><a href="/showBucket">Show Bucket
+                            List</a>
+                    </li>
+                    <li role="presentation" style="padding-right:1em"><a href="/userHome">User Home</a>
+                    </li>
+                    <li role="presentation" style="padding-right:1em"><a href="/logout">Logout</a>
+                    </li>
+
+                </ul>
+            </nav>
+            <h3 class="text-muted">Python Flask App</h3>
+        </div>
+        <section>
+            <form class="form-horizontal" method="post" action="/addItem">
+                <fieldset>
+
+                    <!-- Form Name -->
+                    <legend>Add to Bucket List</legend>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle">Movie name</label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="inputTitle" type="text" placeholder="movie name"
+                                class="form-control input-md">
+                        </div>
+                    </div>
+
+
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <div class="col-md-4">
+                            <input id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit"
+                                value="Add" />
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </section>
+
+
+    </div>
+</body>
+
+</html>
