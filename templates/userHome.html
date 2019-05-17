@@ -16,16 +16,18 @@
                 url: '/getWish',
                 type: 'GET',
                 success: function (res) {
-                    var div = $('<div>')
+                    var div = $('<form>')
                         .attr('class', 'list-group')
+                        .attr('method', 'post')
+                        .attr('action', '/showMore')
                         .append($('<a>')
                             .attr('class', 'list-group-item active')
-                            .append($('<h4>')
+                            .append($('<button>')
                                 .attr('class', 'list-group-item-heading'),
                                 $('<h6>')
-                                    .attr('class', 'list-group-item-heading'),
+                                .attr('class', 'list-group-item-heading'),
                                 $('<p>')
-                                    .attr('class', 'list-group-item-text')));
+                                .attr('class', 'list-group-item-text')));
 
 
                     var revObj = JSON.parse(res);
@@ -33,7 +35,10 @@
 
                     $.each(revObj, function (index, value) {
                         rev = $(div).clone();
-                        $(rev).find('h4').text(value.Title);
+                        $(rev).find('button').attr("value", value.Title);
+                        $(rev).find('button').attr("name", "movie");
+                        $(rev).find('button').attr("type", "submit");
+                        $(rev).find('button').text(value.Title);
                         $(rev).find('h6').text(value.Rate);
                         $(rev).find('p').text(value.Description);
                         $('.jumbotron').append(rev);

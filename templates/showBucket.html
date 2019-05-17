@@ -16,12 +16,16 @@
                 url: '/getItem',
                 type: 'GET',
                 success: function (res) {
-                    var div = $('<div>')
+                    var div = $('<form>')
                         .attr('class', 'list-group')
+                        .attr('method', 'post')
+                        .attr('action', '/showMore')
                         .append($('<a>')
                             .attr('class', 'list-group-item active')
-                            .append($('<h4>')
+
+                            .append($('<button>')
                                 .attr('class', 'list-group-item-heading')
+
                             ));
 
 
@@ -30,7 +34,11 @@
 
                     $.each(revObj, function (index, value) {
                         rev = $(div).clone();
-                        $(rev).find('h4').text(value.Title);
+                        $(rev).find('button').attr("value", value.Title);
+                        $(rev).find('button').attr("name", "movie");
+                        $(rev).find('button').attr("type", "submit");
+                        $(rev).find('button').text(value.Title);
+                        $(rev).attr("name", value.Title);
                         $('.jumbotron').append(rev);
                     });
                 },
@@ -39,6 +47,17 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        function sendName() {
+            $.ajax({
+                url: '/showMore',
+                type: 'GET',
+                mv: document.getElementByClass('list-group-item-heading').text
+            });
+            console.log(document.getElementByClass('list-group-item-heading').text)
+        }
     </script>
 
 </head>

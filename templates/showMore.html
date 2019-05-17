@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Python Flask Bucket List App</title>
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/signup.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active" style="padding-right:1em"><a href="/logout">Logout</a>
+                    </li>
+                    <li role="presentation" class="active"><a href="/userHome">Back to Home</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Python Flask App</h3>
+        </div>
+        <center>
+            <div class="jumbotron">
+                <h1>{{Movie}}</h1>
+                <img src={{img}} width=500px height=500px>
+                <br>
+                <h4>Release Date</h4>
+                <h6>{{date}}</h6>
+                <h4>Director</h4>
+                <h6>{{dir}}</h6>
+                <h4>Actors</h4>
+                <h6>{{actors}}</h6>
+                <h4>Plot</h4>
+                <h6>{{plot}}</h6>
+            </div>
+
+        </center>
+    </div>
+</body>

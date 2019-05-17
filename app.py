@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, json, redirect, session
 from flaskext.mysql import MySQL
 from werkzeug import generate_password_hash, check_password_hash
-
+import requests
+import json
 app = Flask(__name__)
 mysql = MySQL()
 
@@ -14,6 +15,7 @@ mysql.init_app(app)
 conn = mysql.connect()
 cursor = conn.cursor()
 app.secret_key = 'secret key'
+apikey = "7b363e36"
 
 
 @app.route("/")
@@ -194,6 +196,17 @@ def getItem():
             return render_template('error.html', error='Unauthorized Access')
     except Exception as e:
         return render_template('error.html', error=str(e))
+
+
+@app.route("/showMore", methods=['GET', 'POST'])
+def showMore():
+    # movie = 0
+    movie = request.form.get('movie')
+    url = "http://www.omdbapi.com/?t={}&apikey={}".format(movie, apikey)
+    url = url.replace(" ", "%20")
+    r = requests.get(url=url)
+    res = json.loads(r.content)
+    return render_template('showMore.html', Movie=movie.upper(), img=res['Poster'], date=res['Released'], dir=res['Director'], actors=res['Actors'], plot=res['Plot'])
 
 
 if __name__ == "__main__":
