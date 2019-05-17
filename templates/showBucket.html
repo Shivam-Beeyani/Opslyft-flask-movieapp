@@ -49,17 +49,6 @@
         });
     </script>
 
-    <script>
-        function sendName() {
-            $.ajax({
-                url: '/showMore',
-                type: 'GET',
-                mv: document.getElementByClass('list-group-item-heading').text
-            });
-            console.log(document.getElementByClass('list-group-item-heading').text)
-        }
-    </script>
-
 </head>
 
 <body>
