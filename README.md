@@ -14,6 +14,7 @@
 ```
 pip install flask
 pip install flask-mysql
+pip install requests
 python app.py
 ```
 Point the browser to 127.0.0.1:5000 
